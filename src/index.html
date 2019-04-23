@@ -2,13 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>WebApp</title>
+  <title>MyFoodShop</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="src/1.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
+  
+
 </head>
 <body>
+    
   <app-root></app-root>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:false,
+    dots: false,
+  autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+});
+  </script>
+  <script type="text/javascript">
+    $( function(){
+      // $('.navbar').css("box-shadow" , "0 5px 30px rgba(0, 0, 0, 0.15)");
+      $('.welcome_area').height($(window).height());
+  
+  
+  $(window).on('scroll', function(){
+  
+    if($(window).scrollTop() > $('.welcome_area').offset().top ){
+      
+      
+      $('.navbar').addClass("box-shadow");
+      
+      
+    }else{
+      $('.navbar').removeClass("box-shadow");
+    }
+  } );
+
+
+       
+    } );
+  </script>
+  
+  
 </body>
 </html>

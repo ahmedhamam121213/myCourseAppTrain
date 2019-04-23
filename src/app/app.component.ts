@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'webApp';
+  log(x){
+    console.log(x);
+  }
+  test(f){
+    console.log(f.value.firstName);
+  }
 }

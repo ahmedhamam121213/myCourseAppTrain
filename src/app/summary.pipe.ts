@@ -1,0 +1,20 @@
+import { Pipe , PipeTransform } from '@angular/core';
+
+
+
+@Pipe({
+    name : 'summary'
+})
+export class mySummary implements PipeTransform {
+
+    transform( value:string , limit? : number ){
+
+        if(!value){
+            return null;
+        }else{
+            let actualLimit = (limit) ? limit : 10;
+           return value.substr(0,actualLimit) + " ....";
+        }
+        
+    }
+}

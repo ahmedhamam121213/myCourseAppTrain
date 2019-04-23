@@ -1,0 +1,75 @@
+<!--start checkout-->
+<div class="checkout text-center" style="background-image: url(assets/img/bg-img/breadcumb.jpg);">
+  <div class="overlay"></div>
+  <h2>checkout</h2>
+</div>
+
+<div class="container section-padding-80">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Billing Address</h4>
+      <form class="checkout-form" #f="ngForm" (ngSubmit)="test(f)">
+        <div class="row">
+          <div class="col-md-6">
+            <input type="text" name="firstName" required minlength="3" pattern="ahmed" class="form-control" ngModel #firstName="ngModel" placeholder="First name">
+            <div *ngIf="firstName.touched && ! firstName.valid">
+                <div class="alert alert-danger" *ngIf=" firstName.errors.required " >first name is required</div>
+                <div class="alert alert-danger" *ngIf=" firstName.errors.minlength " >first name should be more than {{ firstName.errors.minlength.requiredLength }} characters </div>
+                <div class="alert alert-danger" *ngIf=" firstName.errors.pattern " >first name does not match the pattern</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input type="text" name="lastName" class="form-control" ngModel #lastName="ngModel" placeholder="Last name">
+          </div>
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Company name">
+          </div>
+          <div class="col-md-12">
+            <label for="exampleFormControlSelect1">contacts</label>
+            <select ngModel name="contacts" class="form-control" id="exampleFormControlSelect1">
+              <option *ngFor=" let item of method  " [value]="item.id"> {{item.name}} </option>
+            </select>
+          </div>
+          <div class="radio" *ngFor=" let item of method ">
+            <label>
+              <input type="radio" ngModel name="contactMethod" [value]="item.id">
+              {{item.name}}
+            </label>
+          </div>
+          
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Address">
+          </div>
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Email Address">
+          </div>
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Mobile Phone">
+          </div>
+        
+
+          <div class="col-md-4">
+            <button class="btn btn-default"  [disabled]="!f.valid" type="submit">Submit</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 col-lg-5 ml-lg-auto order-box-container">
+      <div class="order-details-confirmation">
+        <ul class="order-details-form">
+          <h3>Your Order</h3>
+          <p class="the-details">The Details</p>
+          <li><span>Product</span> <span>Total</span></li>
+          <li><span>Cocktail Yellow dress</span> <span>$59.90</span></li>
+          <li><span>Subtotal</span> <span>$59.90</span></li>
+          <li><span>Shipping</span> <span>Free</span></li>
+          <li><span>Total</span> <span>$59.90</span></li>
+          <a href="#" class="btn essence-btn">Place Order</a>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--start checkout-->
