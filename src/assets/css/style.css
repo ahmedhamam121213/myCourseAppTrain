@@ -23,7 +23,9 @@ ul,ol{
 	margin: 0;
 	padding: 0;
 }
-
+.activeLink{
+    font-weight: bold;
+}
 
 .navbar{
 	border-radius: 0;
@@ -210,8 +212,12 @@ ul,ol{
 	color: #787878;
 
 }
+.product-box{
+    margin-bottom: 50px;
+}
 .product-box img{
-	width: 100%
+    width: 100%;
+    height: 340px;
 }
 /*selected products/
 

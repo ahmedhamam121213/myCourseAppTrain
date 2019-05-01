@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <form  #f="ngForm" (ngSubmit)="save(f.value)" >
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text"  name="title" [(ngModel)]="prodDetails.title" class="form-control" id="title">
+        </div>
+        <div class="form-group">
+          <label for="price">price</label>
+          <input type="text" name="price" [(ngModel)]="prodDetails.price" class="form-control" id="price">
+          
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" id="category"  name="catName" [(ngModel)]="prodDetails.catName" >
+            <option  *ngFor="let prod of categories | async " [value]="prod.name"  > {{prod.name}}</option>
+            
+          </select>
+          
+        </div>
+        <div class="form-group">
+          <label for="image">ImageUrl</label>
+          <input type="text"  name="imageUrl" class="form-control" id="image" [(ngModel)]="prodDetails.imageUrl" >
+          
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>&nbsp;
+        <button class="btn btn-danger" (click)="delete()" >Delete</button>
+        
+       
+      </form>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" style="width: 100%;height: 210px;" [src]="prodDetails.imageUrl ? prodDetails.imageUrl : 'https://previews.123rf.com/images/klublub/klublub1406/klublub140600204/29500553-eraser-changing-the-word-unknown-for-known.jpg' ">
+        <div class="card-body">
+          <h5 class="card-title">{{prodDetails.title ? prodDetails.title : 'product title' }} </h5>
+          <p class="card-text">{{prodDetails.price ? prodDetails.price : 'product price' }}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

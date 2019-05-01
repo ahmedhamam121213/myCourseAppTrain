@@ -1,3 +1,5 @@
+import { DisplayProdService } from './sers/display-prod.service';
+import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +12,10 @@ import { OrderDetailsFormComponent } from './comps/order-details-form/order-deta
 import { CategoriesComponent } from './comps/categories/categories.component';
 import { HomeComponent } from './comps/home/home.component';
 import { NavbarComponent } from './comps/navbar/navbar.component';
+import { AdminProductsComponent } from './comps/admin-products/admin-products.component';
+import { AdminProductsFormComponent } from './comps/admin-products-form/admin-products-form.component';
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
 
 @NgModule({
   declarations: [
@@ -20,15 +26,19 @@ import { NavbarComponent } from './comps/navbar/navbar.component';
     OrderDetailsFormComponent,
     CategoriesComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminProductsComponent,
+    AdminProductsFormComponent
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, 
+    AngularFireDatabaseModule,
+	AngularFireModule.initializeApp(environment.firebase) 
   ],
-  providers: [],
+  providers: [ DisplayProdService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
